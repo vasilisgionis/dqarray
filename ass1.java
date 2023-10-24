@@ -11,7 +11,7 @@ class DQueue {
 	private int front;	  // Pointing to the front of the DQueue
 	private int back;	  // Pointing to the back of the DQueue
 	private int nbItems;      // Number of items currently in the DQueue
-
+    private Object temp;
 	// Initializes the private class members
 	public DQueue(int maxSize) {
 		dqArray = new Object[maxSize];
