@@ -82,6 +82,7 @@ class DQueue {
 		if (!isEmpty()){
 			temp=dqArray[back];
 			dqArray[back--]=null;
+			return(temp);
 		}else{
 			return(null); // No item returned
 		}
@@ -91,14 +92,30 @@ class DQueue {
 	// Otherwise, it inserts obj in the front
 	// of theQueue and returns true.
 	public boolean pushFront(Object obj) {
-		return(false); // No insertion
+		if(!isFull()){ // insertion if the array is not full
+			if(!isEmpty()){ //if its not empty it adds the obj in the back 
+				dqArray[--front]=obj;
+		    } else { //if it is empty it makes the back be equal to the front 
+				front=back+1;
+				dqArray[++front]=obj;
+			}
+			return(true); //returns true and adds the obj in the DQueue
+		}else{
+			return(false); // No insertion
+		} 
 	}
 
 	// If the DQueue is empty, it returns null.
 	// Otherwise, it removes an item from the 
 	// front of the DQueue and returns it.
 	public Object popFront() {
-		return(null); // No item returned
+		if (!isEmpty()){
+			temp=dqArray[front];
+			dqArray[front++]=null;
+			return(temp);
+		}else{
+			return(null); // No item returned
+		}
 	}
 
 	public static void main(String[] args) {
